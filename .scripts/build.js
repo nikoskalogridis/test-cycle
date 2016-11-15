@@ -28,6 +28,14 @@ var compiler = webpack({
           presets: ['es2015']
         },
         exclude: /node_modules/
+      },
+      {
+        test: /\.css$/,
+        loader: "style!css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]"
+      },
+      {
+        test: /\.json$/,
+        loader: "json-loader"
       }
     ]
   },
