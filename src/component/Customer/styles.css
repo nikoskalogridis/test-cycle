@@ -1,0 +1,7 @@
+.listItem {
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+}
+.selected {
+  background: rgba(0, 0, 0, 0.13);
+}
