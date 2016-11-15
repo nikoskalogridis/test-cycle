@@ -6,13 +6,15 @@ import {button, li, span, i} from "@cycle/dom";
 import styles from "./styles.css";
 
 function makeCustomerListItem(customer) {
+    const c = {
+        class: {}
+    };
+    c.class[styles.selected] = customer.selected;
     return li(
         `.${styles.listItem}
          .mdl-list__item
-         .mdl-list__item--two-line
-        ${(customer.selected
-            ? "." + styles.selected
-            : "")}`,
+         .mdl-list__item--two-line`,
+        c,
         [
             span(
                 ".mdl-list__item-primary-content",
