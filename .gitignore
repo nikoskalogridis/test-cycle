@@ -48,3 +48,4 @@ jspm_packages
 build
 *mock.json
 .DS_Store
+bundle.js
