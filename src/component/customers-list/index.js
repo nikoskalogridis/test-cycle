@@ -13,7 +13,7 @@ import intent from "./intent";
 import model from "./model";
 import viewModel from "./view-model";
 import view from "./view";
-import Customer from "../Customer";
+import Customer from "../customer-list-item";
 
 function Children(sources) {
     const array$ = sources.onion.state$;

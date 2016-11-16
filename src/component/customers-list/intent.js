@@ -24,6 +24,7 @@ function intent(DOMSource) {
         .select(".refresh-customers-action")
         .events("click")
         .mapTo({type: "REFRESH"});
+
     return xs.merge(addActions$, refreshAction$);
 }
 

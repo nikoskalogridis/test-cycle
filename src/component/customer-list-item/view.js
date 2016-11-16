@@ -13,7 +13,8 @@ function makeCustomerListItem(customer) {
     return li(
         `.${styles.listItem}
          .mdl-list__item
-         .mdl-list__item--two-line`,
+         .mdl-list__item--two-line
+         .mdl-js-ripple-effect`,
         c,
         [
             span(
@@ -32,19 +33,19 @@ function makeCustomerListItem(customer) {
                         customer.phone || customer.email
                     )
                 ]
-            ),
-            button(
-                `.mdl-button.mdl-js-button
-                .mdl-button--icon
-                .mdl-list__item-secondary-action
-                .delete-customer-action`,
-                [
-                    i(
-                        ".material-icons",
-                        "delete"
-                    )
-                ]
             )
+            // button(
+            //     `.mdl-button.mdl-js-button
+            //     .mdl-button--icon
+            //     .mdl-list__item-secondary-action
+            //     .delete-customer-action`,
+            //     [
+            //         i(
+            //             ".material-icons",
+            //             "delete"
+            //         )
+            //     ]
+            // )
             // ),
             // button(
             //     `#${customer.id}
