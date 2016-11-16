@@ -17,7 +17,7 @@ function model(action$) {
         return {
             filterFn: () => true,
             list: []
-            // list: lodash(customers)
+            // lodash(customers)
             //     .filter(function (customer) {
             //         return customer.entryType !== "walkin";
             //     })
@@ -31,7 +31,7 @@ function model(action$) {
             //         };
             //     })
             //     .sortBy((customer) => customer.name.full)
-            //     .take(1)
+            //     .take(100)
             //     .value()
         };
     });
@@ -62,10 +62,38 @@ function model(action$) {
             );
         });
 
+    const deleteReducer$ = action$
+        .filter(actionFilter("DELETE"))
+        .map(() => function deleteCustomers(prevState) {
+            return Object.assign(
+                {},
+                prevState,
+                {
+                    list: prevState.list.filter(function (customer) {
+                        return !customer.selected;
+                    })
+                }
+            );
+        });
+
+    const searchReducer$ = action$
+        .filter(actionFilter("SEARCH"))
+        .map((action) => function searchFilter(prevState) {
+            return Object.assign(
+                {},
+                prevState,
+                {
+                    searchText: action.payload
+                }
+            );
+        });
+
     return xs.merge(
         initialReducer$,
         addCustomerReducer$,
-        refreshReducer$
+        refreshReducer$,
+        deleteReducer$,
+        searchReducer$
     );
 }
 

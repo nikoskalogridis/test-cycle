@@ -34,13 +34,13 @@ function Children(sources) {
 }
 
 export default function CustomerList(sources) {
-    const state$ = sources.onion.state$;
-    const action$ = intent(sources.DOM);
-    const parentReducer$ = model(action$);
-
     const childrenSinks$ = isolate(Children, "list")(sources);
     const childrenVNodes$ = childrenSinks$.vnodes;
     const childrenReducer$ = childrenSinks$.onion;
+
+    const state$ = sources.onion.state$;
+    const action$ = intent(sources.DOM);
+    const parentReducer$ = model(action$);
     const viewState$ = viewModel(state$, childrenVNodes$);
     const vdom$ = view(viewState$);
     const reducer$ = xs.merge(parentReducer$, childrenReducer$);

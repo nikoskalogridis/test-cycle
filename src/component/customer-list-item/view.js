@@ -2,7 +2,7 @@
     es6
 */
 
-import {button, li, span, i} from "@cycle/dom";
+import {li, span, i} from "@cycle/dom";
 import styles from "./styles.css";
 
 function makeCustomerListItem(customer) {
@@ -13,8 +13,8 @@ function makeCustomerListItem(customer) {
     return li(
         `.${styles.listItem}
          .mdl-list__item
-         .mdl-list__item--two-line
-         .mdl-js-ripple-effect`,
+         .mdl-list__item--two-line`,
+         //.mdl-js-ripple-effect`,
         c,
         [
             span(

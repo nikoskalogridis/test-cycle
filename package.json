@@ -27,6 +27,7 @@
     "@cycle/xstream-run": "^3.1.0",
     "cycle-onionify": "^2.1.0",
     "cycle-storageify": "^1.0.0",
+    "i18next": "^4.0.0",
     "lodash": "^4.17.1",
     "xstream": "^7.0.0"
   },

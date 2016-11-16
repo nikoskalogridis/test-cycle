@@ -25,7 +25,22 @@ function intent(DOMSource) {
         .events("click")
         .mapTo({type: "REFRESH"});
 
-    return xs.merge(addActions$, refreshAction$);
+    const deleteMultipleAction$ = DOMSource
+        .select(".delete-multiple-customers-action")
+        .events("click")
+        .mapTo({type: "DELETE"});
+
+    const searchFilter$ = DOMSource
+        .select("#search_header_input")
+        .events("input")
+        .map(function (ev) {
+            return {
+                type: "SEARCH",
+                payload: ev.target.value
+            };
+        });
+
+    return xs.merge(addActions$, refreshAction$, deleteMultipleAction$, searchFilter$);
 }
 
 export default intent;
